@@ -31,8 +31,8 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
   }else{  // 如果上面都不是用户请求的路径
-    response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')  // 设置响应头 Content-Type
+    response.statusCode = 404
     response.end('找不到对应的路径，你需要自行修改 index.js')
   }
 
