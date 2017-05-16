@@ -1,3 +1,127 @@
-h1{
-    background: blue;
+/* 
+* @Author: anchen
+* @Date:   2017-05-16 09:12:17
+* @Last Modified by:   anchen
+* @Last Modified time: 2017-05-16 23:18:10
+*/
+*{
+    box-sizing:border-box;
+}
+body,ul,li{
+    margin: 0;
+    padding:0;
+}
+.profile{
+    text-align: center;
+    margin-top: 54px;
+}
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius: 50px;
+    vertical-align: middle;
+}
+.tags{
+    margin-top: 41px;
+    text-align: center;
+}
+.tags span{
+    display: inline-block;
+    max-width: 128px;
+    background: #ccc;
+    margin-left: 32px;
+    margin-right: 32px;
+    display:inline-block;
+    padding:0 20px;
+    vertical-align: middle;
+}
+.summary{
+    text-align: center;
+}
+.status-1{
+    margin-top:75px;
+    margin-bottom: 35px;
+}
+@media(max-width:425px){
+    section.summary h2.status-1{
+        display: none;
+    }
+    section.summary h2.status-2{
+        display:block;
+    }
+    section.summary h2.status-2 span{
+        display: block;
+    }
+}
+section.summary h2 > span {
+    background: #ccc;
+}
+.status-2{
+    display: none;
+}
+.summary p span{
+    background: #ccc;
+}
+.album{
+    text-align: center;
+    margin-top:10px;
+    padding-top:32px;
+    display: flex;
+    justify-content:center;
+}
+.album ul {
+    margin:0 auto;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:1080px;
+}
+ul,li{
+    list-style: none;
+}
+.album li{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.album ul li img{
+    display: block;
+    height: 181px;
+    width:288px;   
+}
+.album li h3{
+    margin-top:19px;
+    margin-bottom:14px;
+}
+.album h3 span{
+    background: #ccc;
+}
+.album p{
+    background: #ccc;
+}
+@media(max-width:768px){
+    section.album ul{
+        justify-content:center;
+    }
+    .tags span{
+        display: inline-block;
+        margin-top:12px;
+        margin-bottom: 12px;
+        vertical-align: middle;
+    }
+}
+@media(max-width: 425px){
+    section.album ul{
+        justify-content:center;
+    }
+}
+@media(max-width: 320px){
+    .tags span{
+        display: inline-block;
+        margin:12px 16px;
+        vertical-align: middle;
+    }
+    section.album ul{
+        justify-content:center;
+    }
+
 }
