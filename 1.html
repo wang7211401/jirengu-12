@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="test.js"></script>
+</head>
+<body>
+
+    h  i
+    <button>删除div</button>
+<script>
+    var div1 = dom.create('div');
+    console.log(div1);
+    var div2 = dom.create('div',dom.create('p'));
+    console.log(div2);
+    var div3 = dom.create('div','hi');
+    console.log(div3);
+    var div4 = dom.create('div',[dom.create("p"),dom.create("img"),"hello"]);
+    console.log(div4);
+    var div5 = dom.create('div',[
+        dom.create('h1','标题'),
+        dom.create('p','这是一个段落'),
+        dom.create('p','这是另一个段落')
+    ],{
+        id:'div',
+        width:500,
+        height:300
+    });
+    document.body.appendChild(div5);
+    console.log(div5);
+
+    console.log(document.getElementById('div').nodeType);
+    var para = dom.find('p',document.getElementById('div'));
+    console.log(para);
+
+
+    document.getElementsByTagName('button')[0].onclick = function () {
+        dom.empty(document.getElementById('div'));
+    };
+
+
+    console.log(dom.children(document.getElementsByTagName('div')[0]));
+
+    console.log(dom.text(document.body));
+
+    var div6 = dom.attr(document.getElementById('div'), {
+            class: "contain"
+    });
+    console.log(div6);
+
+
+    var styles = dom.style(dom.create('p'), {'border': '1px solid red', 'background': 'green' });
+    console.log(styles);
+
+    console.log(dom.bigBorther(document.getElementsByTagName('p')[0]));
+    console.log(dom.nextBorther(document.getElementsByTagName('p')[0]));
+
+
+</script>
+
+</body>
