@@ -30,21 +30,21 @@
 </div>
 <canvas id="canvas"></canvas>
 <script>
-    let canvas = document.querySelector('#canvas');
-    let clientWidth = document.documentElement.clientWidth;
-    let clientHeight = document.documentElement.clientHeight;
+    var canvas = document.querySelector('#canvas');
+    var clientWidth = document.documentElement.clientWidth;
+    var clientHeight = document.documentElement.clientHeight;
     canvas.width = clientWidth;
     canvas.height = clientHeight;
     console.log(1);
-    let save = document.getElementById('save');
+    var save = document.getElementById('save');
     console.log(save);
-    let context = canvas.getContext("2d");
-    let previousPoint;
+    var context = canvas.getContext("2d");
+    var previousPoint;
     canvas.addEventListener('touchmove',function(e){
         e.preventDefault();
-        let penType = document.querySelector('input[name="penType"]:checked').value;
-        let pageX = e.touches[0].pageX;
-        let pageY = e.touches[0].pageY;
+        var penType = document.querySelector('input[name="penType"]:checked').value;
+        var pageX = e.touches[0].pageX;
+        var pageY = e.touches[0].pageY;
         if(penType === "pen"){
             if(previousPoint){
                 context.strokeStyle = "green";
