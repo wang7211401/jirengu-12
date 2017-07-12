@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>手机画板</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{
+            overflow:hidden;
+        }
+        .actions{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:5px;
+        }
+        #canvas{
+            background:#ddd;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div class="actions">
+    <label><input type="radio" name="penType" value="pen" checked>画笔</label>
+    <label><input type="radio" name="penType" value="eraser">橡皮擦</label>
+    <button id="save">保存</button>
+</div>
+<canvas id="canvas"></canvas>
+<script>
+    let canvas = document.querySelector('#canvas');
+    let clientWidth = document.documentElement.clientWidth;
+    let clientHeight = document.documentElement.clientHeight;
+    canvas.width = clientWidth;
+    canvas.height = clientHeight;
+    console.log(1);
+    let save = document.getElementById('save');
+    console.log(save);
+    let context = canvas.getContext("2d");
+    let previousPoint;
+    canvas.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        let penType = document.querySelector('input[name="penType"]:checked').value;
+        let pageX = e.touches[0].pageX;
+        let pageY = e.touches[0].pageY;
+        if(penType === "pen"){
+            if(previousPoint){
+                context.strokeStyle = "green";
+                context.beginPath();
+                context.moveTo(previousPoint.pageX,previousPoint.pageY);
+                context.lineTo(pageX,pageY);
+                context.stroke();
+            }
+            previousPoint = {
+                'pageX':pageX,
+                'pageY':pageY
+            }
+        }else if(penType === "eraser"){
+            context.clearRect(pageX - 5, pageY - 5 ,10,10)
+        }
+    });
+    canvas.addEventListener('touchend',function(){
+        previousPoint = null
+    });
+    save.onclick = function(){
+        var canvas = document.getElementById('canvas');
+        var data = canvas.toDataURL("image/png");
+        var newWindow = window.open('about:blank','image form canvas');
+        newWindow.document.write("<img src ='"+data+"' alt='form canvas' />")
+    }
+</script>
+</body>
+</html>
