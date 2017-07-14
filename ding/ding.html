@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>丁老头</title>
+  <style>
+.container{
+  width:150px;
+  height:150px;
+  margin-top:100px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+}
+.ding{
+  font-size:30px;
+  position:absolute;
+  left:50%;
+  top:50px;
+  transform:translate(-50%);
+}
+.dan{
+  position:absolute;
+  width:10px;
+  height:10px;
+  border:1px solid;
+  border-radius:50%;
+}
+.dan1{
+  right:52%;
+  top:67px;
+}
+.dan2{
+  left:53%;
+  top:67px;
+}
+.san{
+  position:absolute;
+  left:50%;
+  top:38px;
+  transform:translate(-50%) scaleX(2);
+}
+.si{
+  position:absolute;
+  left:50%;
+  top:83px;
+  transform:translate(-50%) scaleX(2);
+}
+.egg{
+  width:150px;
+  height:150px;
+  border:1px solid;
+  border-radius:50%;
+  transform:scalex(0.8);
+  
+}
+.jiucai{
+  position:absolute;
+  top:-19px;
+  left:50%;
+  transform:translate(-50%) scaleX(1.5)
+}
+.three{
+  position:absolute;
+  top:40%;
+}
+.three1{
+  left:8px;
+  transform:scaleY(2) rotate(180deg);
+}
+.three2{
+  right:6px;
+  transform:scaleY(2);
+}
+.dou{
+  position:absolute;
+  width:100px;
+  height:150px;
+  border:1px solid;
+  left:25px;
+  top:79%;
+  border-top:none;
+}
+.hander{
+  position:absolute;
+  top:120%;
+  font-family: Vijaya;
+}
+.hander1{
+    left: 16px;
+    transform: scaleY(6) scaleX(2);
+}
+.hander2{
+    right: 13px;
+    transform: scaleY(6) scaleX(2) rotateY(180deg);
+}
+ul{
+  list-style:none;
+}
+ul > li{
+  width:10px;
+  height:10px;
+  border:2px solid;
+  border-radius:50%;
+  margin-left:27px; 
+}
+.foot{
+  position:absolute;
+  top:272px;
+  font-size:20px;
+}
+.foot1{
+  right:60%;
+  transform:scaleY(2) rotateX(180deg);
+}
+.foot2{
+  transform:scaleY(2) rotate(180deg);
+  left:60%;
+}
+</style>
+</head>
+<body>
+  <button>丁老头</button>
+  <script>
+    var buttons = document.getElementsByTagName("button");
+    var button = buttons[0];
+    console.log(button);
+    var container = document.createElement("div");
+    var queue = [
+      function(){
+        container.className = "container";
+        document.body.appendChild(container);
+        var ding =  document.createElement("span");
+        ding.className = "ding";
+        ding.textContent = "丁";
+        container.appendChild(ding);
+      },
+      function(){
+        var dan1 = document.createElement("span");
+        dan1.className = "dan dan1";
+        container.appendChild(dan1);
+      },
+      function(){
+        var dan2 = document.createElement("span");
+        dan2.className = "dan dan2";
+        container.appendChild(dan2);
+      },
+      function(){
+        var san = document.createElement("span");
+        san.className = "san";
+        san.textContent = "三";
+        container.appendChild(san);
+      },
+      function(){
+        var si = document.createElement("span");
+        si.className = "si";
+        si.textContent = "四";
+        container.appendChild(si);
+      },
+      function(){
+        var egg = document.createElement("div");
+        egg.className = "egg";
+        container.appendChild(egg);
+      },
+      function(){
+        var jiucai = document.createElement("div");
+        jiucai.className = "jiucai";
+        jiucai.textContent = "| | |";
+        container.appendChild(jiucai);
+      },
+      function(){
+        var three1 = document.createElement("span");
+        three1.className = "three three1"
+        three1.textContent = "3";
+        container.appendChild(three1);
+      },
+      function(){
+        var three2 = document.createElement("span");
+        three2.className = "three three2"
+        three2.textContent = "3";
+        container.appendChild(three2);
+      },
+      function(){
+        var dou = document.createElement("div");
+        dou.className = "dou";
+        container.appendChild(dou);
+      },
+      function(){
+        var hander1 = document.createElement("span");
+        hander1.className = "hander hander1";
+        hander1.textContent = "6";
+        container.appendChild(hander1);
+      },
+      function(){
+        var hander2 = document.createElement("span");
+        hander2.className = "hander hander2";
+        hander2.textContent = "6";
+        container.appendChild(hander2);
+      },
+      function(){
+        var ul = document.createElement("ul");
+        ul.innerHTML = "<li></li><li></li><li></li><li></li>"
+        container.appendChild(ul);
+      },
+      function(){
+        var foot1 = document.createElement("div");
+        foot1.className = "foot foot1";
+        foot1.textContent = "7";
+        container.appendChild(foot1);
+      },
+      function(){
+        var foot2 =document.createElement("div");
+        foot2.className ="foot foot2";
+        foot2.textContent ="7";
+        container.appendChild(foot2);
+      }
+    ];
+    button.onclick = function(){
+      var fn = queue.shift();
+      fn && fn.call();
+      if (fn === undefined){
+        console.log("画好了");
+      }
+    };
+
+    setInterval(function(){
+      button.click()
+    },1000)
+  </script>
+</body>
+</html>
