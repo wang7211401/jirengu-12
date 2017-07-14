@@ -10,3 +10,6 @@
 ## 手机画板
 
 [手机画板](https://wang7211401.github.io/jirengu-12/huatu.html)
+
+## 眼睛
+[眼睛](https://wang7211401.github.io/jirengu-12/eyes/eyes.html)
