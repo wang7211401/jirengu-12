@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-15 11:10:35
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-15 11:11:47
+* @Last Modified time: 2017-07-17 17:39:10
 */
 *{ margin: 0; padding: 0; box-sizing: border-box; }
 *::before{ box-sizing: border-box; }
@@ -770,6 +770,7 @@ a{text-decoration: none; color: inherit;}
 .skins-wrapper .tips .tips-container p{
     color:#878787;
     font-size:12px;
+    padding-top: 3px;
 }
 .skins-wrapper .tips .tips-container p em{
     color:#404040;
