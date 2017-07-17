@@ -870,14 +870,16 @@ a{text-decoration: none; color: inherit;}
 .recommend .recommend-video a p{
     font-size:14px;
     color:#515151;
-    font-weight: normal;
-    line-height: 20px;
-    height: 40px;
+    position:absolute;
+    height: 45px;
+    bottom:0;
+    left:0;
     overflow: hidden;
     padding-top:5px;
 }
 .recommend .recommend-video a:hover p{
     color:#d1ab57;
+    background: #eee;
 }
 .recommend .recommend-content .activity-more{
     display: block;
