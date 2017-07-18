@@ -913,13 +913,11 @@ a{text-decoration: none; color: inherit;}
     text-align:center;
 }
 .recommend .recommend-activity ul .activity-item a img{
-    display: block;
-    width:300px;
-    height:130px;
+    width:100%;
+    transition: ease all .8s;
 }
 .recommend .recommend-activity ul .activity-item a:hover img{
     transform:scale(1.1);
-    transition:all .8s;
 }
 
 .recommend .recommend-activity ul .activity-item a span{
