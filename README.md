@@ -16,3 +16,7 @@
 
 ## 丁老头
 [丁老头](https://wang7211401.github.io/jirengu-12/ding/ding.html)
+
+## 仿lol官网
+
+[仿lol官网](https://wang7211401.github.io/jirengu-12/lol/lol.html)
