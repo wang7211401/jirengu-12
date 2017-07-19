@@ -15,10 +15,12 @@
 [手机画板](https://wang7211401.github.io/jirengu-12/huatu.html)
 
 ## 眼睛
-[眼睛](https://wang7211401.github.io/jirengu-12/eyes/eyes.html)
+
+[会动的眼睛](https://wang7211401.github.io/jirengu-12/eyes/eyes.html)
 
 ## 丁老头
-[丁老头](https://wang7211401.github.io/jirengu-12/ding/ding.html)
+
+[画一个丁老头](https://wang7211401.github.io/jirengu-12/ding/ding.html)
 
 ## 仿lol官网
 
