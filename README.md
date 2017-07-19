@@ -23,3 +23,7 @@
 ## 仿lol官网
 
 [仿lol官网](https://wang7211401.github.io/jirengu-12/lol/lol.html)
+
+## 苹果风格轮播
+
+[苹果风格轮播](https://wang7211401.github.io/jirengu-12/slider/slider.html)
