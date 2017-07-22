@@ -4,7 +4,7 @@
 
 ## DOM增删改查
 
-[DOM增删改查](https://wang7211401.github.io/jirengu-12/DOM/DOM.js)
+[DOM增删改查](https://wang7211401.github.io/jirengu-12/DOM)
 
 ## popover组件
 
