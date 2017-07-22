@@ -4,11 +4,11 @@
 
 ## DOM增删改查
 
-[DOM增删改查](https://wang7211401.github.io/jirengu-12/test.js)
+[DOM增删改查](https://wang7211401.github.io/jirengu-12/DOM/DOM.js)
 
 ## popover组件
 
-[popover组件](https://wang7211401.github.io/jirengu-12/popover.html)
+[popover组件](https://wang7211401.github.io/jirengu-12/popover/popover.html)
 
 ## 手机画板
 
