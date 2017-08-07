@@ -76,6 +76,7 @@
         loadMoreButton.onclick = function(){
             let request = new XMLHttpRequest();
             request.open('GET',`./page-${n+1}.html`);
+            console.log(n);
             request.onload =function(){
                 n +=1;
                 let response = request.responseText;
@@ -89,6 +90,7 @@
                     loadMoreButton.textContent ="看完了"
                 }
             };
+            console.log('n:'+ n);
             request.send()
         };
         window.onscroll = function(){
@@ -97,7 +99,6 @@
             var clientHeight = doc.clientHeight;
             var viewportOffset = loadMoreButton.getBoundingClientRect();
             var buttonTop = viewportOffset.top;
-            console.log(clientHeight,buttonTop);
             if( buttonTop <= clientHeight + 100){
                 loadMoreButton.click()
             }
