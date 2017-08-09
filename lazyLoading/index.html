@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        *::before{
+            box-sizing:border-box;
+        }
+        *::after{
+            box-sizing:border-box;
+        }
+        ol,ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        #list{
+            max-width:680px;
+            margin:0 auto;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+        }
+        #list li{
+            width:calc(33.333333% - 10px);
+            text-align:center;
+        }
+        .oneToOne{
+            padding-top:100%;
+            position:relative;
+        }
+        .oneToOne img{
+            position:absolute;
+            width:100%;
+            height:100%;
+            left:0;
+            top:0;
+        }
+        .loadMore{
+            text-align:center;
+            margin:16px 0;
+        }
+    </style>
+</head>
+<body>
+    <ol id="list">
+    </ol>
+    <div class="loadMore">
+        <button id="loadMoreButton">加载更多</button>
+    </div>
+    <script>
+        // 预加载
+        var loadingImage = new Image();
+        loadingImage.src="https://i.loli.net/2017/08/08/5989307b6c87b.gif";
+        let list = document.querySelector('#list');
+        for(var i=0;i < 9;i++){
+            let li = document.createElement('li');
+            let div = document.createElement('div');
+            div.className = 'oneToOne';
+            let image = document.createElement('img');
+            image.src = '//via.placeholder.com/200x200?text=' + Math.random().toFixed(6);
+            div.appendChild(image);
+            let p = document.createElement('p');
+            p.textContent = `这是第 ${i+1} 段话`;
+            li.appendChild(div);
+            li.appendChild(p);
+            list.appendChild(li)
+        }
+        let loadMoreButton = document.querySelector('#loadMoreButton');
+        let n =1;
+        let demand = false;
+        loadMoreButton.onclick = function(){
+            if(demand){return}
+            let request = new XMLHttpRequest();
+            request.open('GET',`./page-${n+1}.html`);
+            request.onerror = function(){
+                demand = false
+            };
+            request.onload =function(){
+                demand = false;
+                n +=1;
+                let response = request.responseText;
+                let data = JSON.parse(response);
+                for(var i=0;i < data.content.length;i++){
+                    let liString = `
+                        <li>
+                            <div class="oneToOne">
+                                <img src="https://i.loli.net/2017/08/08/5989307b6c87b.gif" data-xxx="${data.content[i].url}">
+                            </div>
+                            <p>${data.content[i].text}</p>
+                        </li>`;
+                    list.insertAdjacentHTML('beforeend',liString)
+                }
+                if(data.hasNextPage === false){
+                    loadMoreButton.disabled = true;
+                    loadMoreButton.textContent ="看完了"
+                }
+            };
+            demand = true;
+            request.send()
+        };
+        window.onscroll = function(){
+            var doc = document.documentElement;
+            var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+            var clientHeight = doc.clientHeight;
+            var viewportOffset = loadMoreButton.getBoundingClientRect();
+            var buttonTop = viewportOffset.top;
+            if( buttonTop <= clientHeight){
+                loadMoreButton.click()
+            }
+            var images =document.querySelectorAll('img[data-xxx]');
+            for (var i=0;i<images.length;i++){
+                var imagesviewportOffset =images[i] .getBoundingClientRect();
+                var imagesTop = imagesviewportOffset.top;
+                if( imagesTop <= clientHeight){
+                    images[i].src = images[i].getAttribute('data-xxx');
+                    images[i].removeAttribute('data-xxx')
+                }
+            }
+        }
+    </script>
+
+
+</body>
+</html>
