@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分页</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #pager{
+            min-height:500px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        #pager a{
+            border:1px solid red;
+            padding:0 10px;
+        }
+        #pager span{
+            border:1px solid red;
+            padding:0 10px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+{{xxx}}
+
+<input type="hidden" name="page" value="{{page}}">
+<input type="hidden" name="pageCount" value="{{pageCount}}">
+<div id="pager">
+</div>
+<script>
+    let page = document.querySelector('input[name="page"]').value;
+    let pageCount =document.querySelector('input[name="pageCount"]').value;
+    let pager =document.querySelector('#pager');
+    page = +page; // 把 page 变成数字
+    pageCount = +pageCount;
+    for(let i=0;i<pageCount;i++){
+        let tag;
+        if(i+1 === page){
+            tag =document.createElement('span')
+        }else{
+            tag =document.createElement('a');
+            tag.href=`?page=${i+1}`
+        }
+        tag.textContent =i+1;
+        pager.appendChild(tag)
+    }
+
+</script>
+</body>
+</html>
