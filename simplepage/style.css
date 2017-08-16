@@ -77,7 +77,7 @@ body{
 .slides .slide li img{
     display: block;
     width:920px;
-    height:auto;
+    max-height:400px;
 }
 .slides #next,.slides #prev{
     display: flex;
