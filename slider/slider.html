@@ -2,22 +2,53 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JS Bin</title>
+  <title>轮播组件</title>
   <style>
-    body,ul{
+    *{
+      box-sizing: border-box;
+    }
+    body,ul,p{
       margin:0;
       padding:0;
       background: #F2F2F2;
     }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+    }
     ul{
       list-style:none;
     }
+    a, a:visited {
+      color: #0196e3;
+      text-decoration: none;
+    }
+    .title{
+      width:920px;
+      margin:0 auto;
+      text-align:center;
+      overflow:hidden;
+    }
+    .title h1{
+      font-family:"Myriad Pro", Arial, Helvetica, sans-serif;
+      font-size:42px;
+      font-weight:normal;
+      padding-top:35px;
+    }
+    .title p{
+      font-family: "Myriad Pro", Arial, Helvetica, sans-serif;
+      font-size:16px;
+      font-weight:normal;
+      margin-bottom: 30px;
+      margin-top:-10px;
+    }
     .container{
-      border:1px solid #E0E0E0;
-      margin:50px auto;
+      margin:0 auto;
       max-width:920px;
-      border-bottom-left-radius:5px;
-      border-bottom-right-radius: 5px; 
+      background: #fff;
+      box-shadow: 0 0 3px #AAA;
+      border: 1px solid white;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
     }
     .controls{
       display:flex;
@@ -31,94 +62,111 @@
     .controls-thumb{
       display:flex;
       justify-content:center;
-      background: #f3f3f3;
+      background: url(https://ooo.0o0.ooo/2017/06/22/594bdad5d72b2.jpg) repeat;
     }
     .controls-thumb > li{
+      width:60px;
+      height:45px;
       position:relative;
-      padding:12px 20px;
       display:flex;
       justify-content:center;
       align-items:center;
-      border:1px solid #D8D8D8;
-      margin:1px;
+      background: url(https://ooo.0o0.ooo/2017/06/22/594bdad5dc64a.png) no-repeat right;
     }
-    .active{
-      background: #D8D8D8;
+    .controls-thumb li.fbar::before{
+      content:'';
+      display: block;
+      width:2px;
+      height:45px;
+      position:absolute;
+      top:0;
+      left:0;
+      background: url(https://ooo.0o0.ooo/2017/06/22/594bdad5dc64a.png) no-repeat left;
     }
-    .controls-thumb li.active::before{
-        content:'';
-        display:block;
-        position:absolute;
-        top:0;
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 10px solid #D8D8D8;
-        
+    .controls-thumb li.active{
+      background: url(https://ooo.0o0.ooo/2017/06/22/594bdad5db148.png) repeat;
     }
-    .controls-thumb li.active::after{
-        content:'';
-        display:block;
-        position:absolute;
-        top:-1px;
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 9px solid #FFFFFF;
-        
+    .footer{
+      margin:15px auto;
+      text-align:center;
+    }
+    .footer p{
+      font-size:10px;
+      text-align:center;
+      padding:10px;
+      margin:0;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <ul class="controls">
-      <li>
-        <img src="https://ooo.0o0.ooo/2017/06/21/5949ef76b3b3b.jpg" alt="">
-      </li>
-      <li>
-        <img src="https://ooo.0o0.ooo/2017/06/21/5949ef9c1d0fc.jpg" alt="">
-      </li>
-      <li>
-        <img src="https://ooo.0o0.ooo/2017/06/21/5949efd4020e1.jpg" alt="">
-      </li>
-      <li>
-        <img src="https://ooo.0o0.ooo/2017/06/21/5949efb4869e3.jpg" alt="">
-      </li>
-    </ul>
-    <ul class="controls-thumb">
-      <li class="active"><img src="https://ooo.0o0.ooo/2017/06/21/5949efeb039a0.png" alt=""></li>
-      <li><img src="https://ooo.0o0.ooo/2017/06/21/5949efef405fe.png" alt=""></li>
-      <li><img src="https://ooo.0o0.ooo/2017/06/21/5949eff69c80e.png" alt=""></li>
-      <li><img src="https://ooo.0o0.ooo/2017/06/21/5949eff69d4b1.png" alt=""></li>
-    </ul>
-  </div>
-  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script>
-    $('.controls-thumb').on('click', 'li', function(e) {
-      let $li = $(e.currentTarget);
-      let index = $li.index();
-      go(index);
-    })
-
+<div class="title">
+  <h1>
+    Apple-like Gallery<br>
+    <b>Slideshow</b>
+  </h1>
+  <p>View the <a href="#">original tutorial »</a></p>
+</div>
+<div class="container">
+  <ul class="controls">
+    <li>
+      <img src="https://ooo.0o0.ooo/2017/06/21/5949ef76b3b3b.jpg" alt="">
+    </li>
+    <li>
+      <img src="https://ooo.0o0.ooo/2017/06/21/5949ef9c1d0fc.jpg" alt="">
+    </li>
+    <li>
+      <img src="https://ooo.0o0.ooo/2017/06/21/5949efd4020e1.jpg" alt="">
+    </li>
+    <li>
+      <img src="https://ooo.0o0.ooo/2017/06/21/5949efb4869e3.jpg" alt="">
+    </li>
+  </ul>
+  <ul class="controls-thumb">
+    <li class="active fbar"><img src="https://ooo.0o0.ooo/2017/06/21/5949efeb039a0.png" alt=""></li>
+    <li><img src="https://ooo.0o0.ooo/2017/06/21/5949efef405fe.png" alt=""></li>
+    <li><img src="https://ooo.0o0.ooo/2017/06/21/5949eff69c80e.png" alt=""></li>
+    <li><img src="https://ooo.0o0.ooo/2017/06/21/5949eff69d4b1.png" alt=""></li>
+  </ul>
+</div>
+<div class="footer">
+  <p>This is a tutorialzine demo. View the <a href="#">original tutorial </a>to read and download the source files.</p>
+  <p>The gallery features artwork from <a href="#">rambocre, pickupjojo </a>and <a href="#">codenamebender.</a></p>
+</div>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
     function go(index) {
-      $('.controls-thumb > li').eq(index).addClass('active').siblings().removeClass('active');
-      let width = $('.controls>li>img').width();
-      $('.controls > li').css({
-        transform: 'translateX(' + (-width * index) + 'px)'
-      })
+        $('.controls-thumb > li').eq(index).addClass('active').siblings().removeClass('active');
+        let width = $('.controls>li>img').width();
+        $('.controls > li').css({
+            transform: 'translateX(' + (-width * index) + 'px)'
+        })
     }
-
     let current = 0;
-    let setIndex = setInterval(function() {
-      let nextIndex = current + 1;
-      if (nextIndex === 4) {
-        nextIndex = 0
-      }
-      go(nextIndex);
-      current = nextIndex
-    }, 2000)
-  </script>
+    let player = false;
+    function play(){
+        if(player){
+            current = $('.controls-thumb > li.active').index();
+        }
+        current = current + 1;
+        if (current === 4) {
+            current = 0
+        }
+        go(current);
+    }
+    let setIndex = setInterval(play, 3000);
+    $('.controls-thumb').on('click', 'li', function(e) {
+        player = true;
+        clearInterval(setIndex);
+        let $li = $(e.currentTarget);
+        let index = $li.index();
+        go(index);
+    });
+    $('.container').on('mouseover',function(){
+        clearInterval(setIndex);
+    });
+    $('.container').on('mouseout',function(){
+        setIndex = setInterval(play,3000);
+    });
+</script>
 </body>
 </html>
