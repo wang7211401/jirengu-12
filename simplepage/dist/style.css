@@ -1,11 +1,12 @@
-/*
+ /*
 * @Author: anchen
 * @Date:   2017-05-16 09:12:17
 * @Last Modified by:   anchen
 * @Last Modified time: 2017-05-16 23:18:10
 */
 *{
-    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+            box-sizing:border-box;
 }
 body,ul,li{
     margin: 0;
@@ -46,7 +47,8 @@ body{
     cursor:pointer;
 }
 .tags span:hover{
-    box-shadow: 0 0 8px #ccc;
+    -webkit-box-shadow: 0 0 8px #ccc;
+            box-shadow: 0 0 8px #ccc;
 }
 .summary{
     text-align: center;
@@ -56,38 +58,43 @@ body{
     overflow: hidden;
 }
 .slides{
-    border:1px solid #E0E0E0;
-    margin:20px auto;
-    max-width:920px;
     position:relative;
 }
 .slide{
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
     overflow:hidden;
-    max-width:920px;
-    max-height:400px;
 }
 .slide li{
+    -webkit-transition:-webkit-transform .8s;
+    transition:-webkit-transform .8s;
     transition:transform .8s;
-}
-.slide li a{
-    max-width:920px;
-    max-height:400px;
+    transition:transform .8s, -webkit-transform .8s;
+    -ms-flex-negative:0;
+        flex-shrink:0;
+    width:100%;
 }
 .slides .slide li img{
     display: block;
-    width:920px;
-    max-height:400px;
+    width:100%;
 }
 .slides #next,.slides #prev{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 50px;
     height: 50px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
     font-size: 38px;
     color: #eed;
     cursor: pointer;
@@ -104,20 +111,30 @@ body{
 }
 .slides .menu{
     width: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
 }
 .slides .menu li{
     width: 20px;
     height: 20px;
     background: rgba(0,0,0,0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -127,18 +144,27 @@ body{
 }
 .album{
     text-align: center;
-    padding-top:0;
+    padding-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content:center;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
     max-width: 920px;
     margin: 0 auto;
     background: rgb(252,252,252);
 }
 .album ul {
     margin:0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    -ms-flex-wrap:wrap;
+        flex-wrap:wrap;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
     max-width:1080px;
 }
 ul,li{
@@ -190,12 +216,10 @@ ul,li{
     display:none;
 }
 @media(max-width:768px){
-    .slides .slide li img{
-        width:768px;
-        height: 278px;
-    }
     section.album ul{
-        justify-content:center;
+        -webkit-box-pack:center;
+            -ms-flex-pack:center;
+                justify-content:center;
     }
     .tags span{
         display: inline-block;
@@ -204,25 +228,11 @@ ul,li{
         vertical-align: middle;
     }
 }
-@media(max-width: 425px){
-    .slides .slide li img{
-        width:425px;
-    }
-    section.album ul{
-        justify-content:center;
-    }
-}
 @media(max-width: 320px){
-    .slides .slide li img{
-        width:320px;
-    }
     .tags span{
         display: inline-block;
         margin:12px 16px;
         vertical-align: middle;
     }
-    section.album ul{
-        justify-content:center;
-    }
-
 }
+/*# sourceMappingURL=style.css.map */
